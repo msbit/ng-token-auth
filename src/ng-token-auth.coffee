@@ -383,11 +383,10 @@ angular.module('ng-token-auth', ['ipCookie'])
             obj = {}
             pair = undefined
             i = undefined
-            for i of pairs
-              `i = i`
-              if pairs[i] == ''
+            for i in pairs
+              if i == ''
                 continue
-              pair = pairs[i].split('=')
+              pair = i.split('=')
               obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1])
             obj
 

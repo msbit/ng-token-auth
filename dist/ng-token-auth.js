@@ -353,17 +353,17 @@ angular.module('ng-token-auth', ['ipCookie']).provider('$auth', function() {
               return str.join("&");
             },
             parseLocation: function(location) {
-              var i, obj, pair, pairs;
+              var i, obj, pair, pairs, _i, _len;
               pairs = location.substring(1).split('&');
               obj = {};
               pair = void 0;
               i = void 0;
-              for (i in pairs) {
-                i = i;
-                if (pairs[i] === '') {
+              for (_i = 0, _len = pairs.length; _i < _len; _i++) {
+                i = pairs[_i];
+                if (i === '') {
                   continue;
                 }
-                pair = pairs[i].split('=');
+                pair = i.split('=');
                 obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
               }
               return obj;
